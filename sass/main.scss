@@ -1,8 +1,8 @@
-@use "./utils/variables";
-@use "./base/common";
-@use "./layout/header";
-@use "./layout/hero";
-@use "./layout/catalog";
-@use "./layout/info";
-@use "./layout/contacts";
-@use "./layout/footer";
+@import "./utils/variables";
+@import "./base/common";
+@import "./layout/header";
+@import "./layout/hero";
+@import "./layout/catalog";
+@import "./layout/info";
+@import "./layout/contacts";
+@import "./layout/footer";

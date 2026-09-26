@@ -1,6 +1,7 @@
 body {
   background-color: #131316;
   color: #fff;
+  margin: 0 auto;
 }
 
 .header .animated-advertising {
@@ -8,12 +9,22 @@ body {
 }
 .header .animated-advertising p {
   color: #131316;
+  margin: 0 auto;
+  font-family: Montserrat;
+  font-weight: 800;
+  font-style: ExtraBold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
 }
 
 .footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 69px, 80px;
+  gap: 70px;
 }
 .footer__logobox {
   width: 150px;
