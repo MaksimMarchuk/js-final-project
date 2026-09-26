@@ -1,8 +1,8 @@
-@use "./utils/_variables.scss";
-@use "./base/_common.scss";
-@use "./layout/_header.scss";
-@use "./layout/_hero.scss";
-@use "./layout/_catalog.scss";
-@use "./layout/_info.scss";
-@use "./layout/_contacts.scss";
-@use "./layout/_footer.scss";
+@use "./utils/variables";
+@use "./base/common";
+@use "./layout/header";
+@use "./layout/hero";
+@use "./layout/catalog";
+@use "./layout/info";
+@use "./layout/contacts";
+@use "./layout/footer";
