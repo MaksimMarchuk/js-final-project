@@ -1,0 +1,124 @@
+.main {
+
+    .front-sect {
+        padding-left: 70px;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 100px;
+
+        .front-main-div {
+
+            h1 {
+                font-family: Onest;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 24px;
+                line-height: 123px;
+                letter-spacing: -2%;
+                text-transform: lowercase;
+                color: #B3B3B3;
+                margin: 0;
+                height: 75px;
+            }
+
+            h2 {
+                font-family: Onest;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 82px;
+                line-height: 112px;
+                letter-spacing: -2%;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                width: 556px;
+                margin-top: 30px;
+            }
+
+            h3 {
+                font-family: Inter;
+                font-weight: 500;
+                font-style: Medium;
+                font-size: 18px;
+                line-height: 27px;
+                letter-spacing: -2%;
+                color: #B3B3B3;
+                width: 433px;
+            }
+
+            .front-btn-div {
+                display: flex;
+                gap: 20px;
+
+                .catalog-btn {
+                    width: 252px;
+                    height: 69px;
+                    background-color: #FF3D1A;
+                    font-family: Montserrat;
+                    font-weight: 600;
+                    font-style: SemiBold;
+                    font-size: 20px;
+                    line-height: 27px;
+                    letter-spacing: -2%;
+                    text-align: center;
+                    vertical-align: middle;
+                    color: #131316;
+                    border-style: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .about-btn {
+                    width: 229px;
+                    height: 69px;
+                    border: 1px solid #434343;
+                    color: #FFFFFF;
+                    font-family: Montserrat;
+                    font-weight: 600;
+                    font-style: SemiBold;
+                    font-size: 20px;
+                    line-height: 27px;
+                    letter-spacing: -2%;
+                    border-radius: 5px;
+                    background-color: #131316;
+                    cursor: pointer;
+                }
+            }
+        }
+        .front-img-div{
+            display: flex;
+
+            .front-img-div-first{
+                display: flex;
+                flex-direction: column;
+                width: 520px;
+                align-self: center;
+                
+                .front-sneakers-img{
+                    width: 452px;
+                    height: 293px;
+                    align-self: flex-start;
+                }
+
+                .front-cap-img{
+                    width: 210.2px;
+                    height: 203.6px;
+                    position: relative;
+                    bottom: 120px;
+                    align-self: flex-end;
+                }
+            }
+
+            .front-img-div-two{
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+
+                .front-price-img{
+                    position: relative;
+                    right: 150px;
+                    bottom: 35px;
+                }
+            }
+        }
+    }
+}

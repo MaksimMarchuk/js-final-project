@@ -2,17 +2,119 @@
 
     .animated-advertising {
         background-color: #FF330E;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
 
-        p {
-            color: #131316;
-            margin: 0 auto;
-            font-family: Montserrat;
-            font-weight: 800;
-            font-style: ExtraBold;
-            font-size: 20px;
+        @keyframes ticker {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .animated-move {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 10s linear infinite;
+
+            p {
+                color: #131316;
+                margin: 0 auto;
+                font-family: Montserrat;
+                font-weight: 800;
+                font-style: ExtraBold;
+                font-size: 20px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                text-transform: uppercase;
+
+                i {
+                    margin-left: 25px;
+                    margin-right: 25px;
+                }
+            }
+        }
+    }
+
+    .nav-menu {
+        border-bottom: 1px solid #5F5F61;
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #B3B3B3;
+            font-family: Inter;
+            font-weight: 500;
+            font-style: Medium;
+            font-size: 18px;
             line-height: 100%;
             letter-spacing: 0%;
-            text-transform: uppercase;
+
+            li{
+                cursor: pointer;
+            }
+
+
+            .nav-ico-text {
+                font-family: Anton;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 36px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                cursor: default;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    i {
+                        font-size: 10px;
+                        text-align: center;
+                        color: #FF3D1A;
+                    }
+                }
+            }
+
+            .nav-input {
+                border: 1px solid #2A2A2A;
+                background-color: #1A1A1E;
+
+                i{
+                    margin: 10px;
+                }
+
+                input {
+                    border-style: none;
+                    width: 300px;
+                    height: 40px;
+                    background-color: #1A1A1E;
+                    font-family: Inter;
+                    font-weight: 400;
+                    font-style: Regular;
+                    font-size: 20px;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    color: #5F5F61;
+                    outline-style: none;
+                }
+            }
+
+            .nav-img{
+                border: 2px solid #5F5F61;
+                padding: 5px;
+            }
         }
     }
 }
