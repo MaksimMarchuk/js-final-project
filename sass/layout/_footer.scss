@@ -1,9 +1,23 @@
-.footer{
+.footer {
     display: flex;
     flex-direction: row;
-    padding: 69px, 80px;
-    gap: 70px;
+    justify-content: space-between;
+    // padding: 69px, 80px;
+    // gap: 70px;
 
-    
+    &__logobox {
+        width: 150px;
+    }
+
+    &__navigation {
+        width: 100px;
+    }
+
+    &__categories {
+        width: 100px;
+    }
+
+    &__contacts {
+        width: 150px;
+    }
 }
-

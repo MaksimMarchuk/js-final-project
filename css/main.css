@@ -6,6 +6,17 @@ body {
 .footer {
   display: flex;
   flex-direction: row;
-  padding: 69px, 80px;
-  gap: 70px;
+  justify-content: space-between;
+}
+.footer__logobox {
+  width: 150px;
+}
+.footer__navigation {
+  width: 100px;
+}
+.footer__categories {
+  width: 100px;
+}
+.footer__contacts {
+  width: 150px;
 }
