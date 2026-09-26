@@ -3,6 +3,13 @@ body {
   color: #fff;
 }
 
+.header .animated-advertisin {
+  background-color: #FF330E;
+}
+.header .animated-advertisin p {
+  color: #131316;
+}
+
 .footer {
   display: flex;
   flex-direction: row;

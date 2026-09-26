@@ -1,8 +1,8 @@
-@import "./base/_common.scss";
-@import "./layout/_header.scss";
-@import "./layout/_hero.scss";
-@import "./layout/_catalog.scss";
-@import "./layout/_info.scss";
-@import "./layout/_contacts.scss";
-@import "./layout/_footer.scss";
-@import "./utils/_variables.scss";
+@use "./utils/_variables.scss";
+@use "./base/_common.scss";
+@use "./layout/_header.scss";
+@use "./layout/_hero.scss";
+@use "./layout/_catalog.scss";
+@use "./layout/_info.scss";
+@use "./layout/_contacts.scss";
+@use "./layout/_footer.scss";
