@@ -3,26 +3,26 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 69px, 80px;
+    padding: 69px 80px;
     gap: 70px;
 
-    &__container{
+    &__container {
         width: 1440px;
     }
 
     &__logobox {
-        width: 150px;
+        width: 100px;
     }
 
     &__navigation {
-        width: 100px;
+        width: 50px;
     }
 
     &__categories {
-        width: 100px;
+        width: 50px;
     }
 
     &__contacts {
-        width: 150px;
+        width: 100px;
     }
 }

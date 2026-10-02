@@ -218,21 +218,21 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 69px, 80px;
+  padding: 69px 80px;
   gap: 70px;
 }
 .footer__container {
   width: 1440px;
 }
 .footer__logobox {
-  width: 150px;
+  width: 100px;
 }
 .footer__navigation {
-  width: 100px;
+  width: 50px;
 }
 .footer__categories {
-  width: 100px;
+  width: 50px;
 }
 .footer__contacts {
-  width: 150px;
+  width: 100px;
 }
