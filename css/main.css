@@ -216,23 +216,8 @@ body {
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 69px 80px;
-  gap: 70px;
+  width: 100%;
 }
 .footer__container {
-  width: 1440px;
-}
-.footer__logobox {
-  width: 100px;
-}
-.footer__navigation {
-  width: 50px;
-}
-.footer__categories {
-  width: 50px;
-}
-.footer__contacts {
-  width: 100px;
+  max-width: 1440px;
 }
