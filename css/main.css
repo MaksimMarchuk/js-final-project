@@ -213,11 +213,155 @@ body {
   bottom: 35px;
 }
 
-.footer {
+.info {
+  width: 100%;
+  padding: 70px 150px;
+}
+.info__container {
+  width: 1440px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.info__textbox {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 50px 0px 15px 0px;
+  font-family: Inter;
+  font-size: 20px;
+}
+.info__title {
+  font-family: "Onest", sans-serif;
+  font-size: 64px;
+  margin: 0px;
+}
+.info__text {
+  font-family: Inter;
+  color: #B3B3B3;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.count {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin-top: 72px;
+}
+.count__number {
+  font-family: "Oswald", sans-serif;
+  color: #ED3B1B;
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0px;
+}
+.count__text {
+  font-family: Inter;
+  color: #B3B3B3;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.contacts {
   width: 100%;
+  padding: 130px 155px;
+}
+.contacts__container {
+  width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contacts__maininfobox {
+  width: 482px;
+}
+.contacts__title {
+  font-family: "Onest", sans-serif;
+  font-size: 64px;
+  margin: 0px;
+}
+.contacts__text {
+  font-family: Inter;
+  color: #B3B3B3;
+  font-size: 20px;
+}
+.contacts__textbox {
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  margin: 50px 0px 15px 0px;
+  font-family: Inter;
+  font-size: 20px;
+}
+.contacts__subtitles {
+  color: #B3B3B3;
+  font-weight: 300;
+}
+.contacts__iconsbox i {
+  font-size: 35px;
+  margin-right: 25px;
+  color: #B3B3B3;
+}
+.contacts img {
+  width: 650px;
+}
+
+.footer {
+  font-family: Inter;
+  font-size: 16px;
+  width: 100%;
+  padding: 70px 150px;
+  color: #B3B3B3;
+  background-color: #1A1A1E;
 }
 .footer__container {
-  max-width: 1440px;
+  width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+.footer__navigation {
+  height: 177px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer__categories {
+  height: 177px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer__contacts {
+  height: 95px;
+}
+.footer__text {
+  font-weight: 500;
+  color: #5F5F61;
+}
+.footer__link {
+  color: #B3B3B3;
+  text-decoration: none;
+}
+
+.copyright {
+  background-color: #1A1A1E;
+  padding: 45px 0px;
+}
+.copyright hr {
+  background-color: #2C2C31;
+  height: 2px;
+  border: none;
+}
+.copyright__text {
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  color: #5F5F61;
 }

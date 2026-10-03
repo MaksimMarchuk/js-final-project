@@ -1,0 +1,58 @@
+.contacts {
+    width: 100%;
+    padding: 130px 155px;
+
+
+    &__container {
+        width: 1440px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__maininfobox {
+        width: 482px;
+    }
+
+    &__title {
+        font-family: $font-main;
+        font-size: 64px;
+        margin: 0px;
+    }
+
+    &__text {
+        font-family: Inter;
+        color: #B3B3B3;
+        font-size: 20px;
+    }
+
+    &__textbox{
+        display: flex;
+        flex-direction: row;
+        gap: 45px;
+        margin: 50px 0px 15px 0px;
+        font-family: Inter;
+        font-size: 20px;
+    }
+    
+    &__subtitles{
+        color: #B3B3B3;
+        font-weight: 300;
+    }
+
+    &__iconsbox{
+
+        i{
+            font-size: 35px;
+            margin-right: 25px;
+            color: #B3B3B3;
+        }
+    }
+
+    img{
+        width: 650px;
+    }
+
+}
+

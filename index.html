@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -234,61 +237,64 @@
                         <button>У кошик</button>
                     </div>
                 </div>
+            </div>
         </section>
         <section class="info">
-            <div class="container">
+            <div class="info__container">
                 <img src="./imgs/jacket_aboutShop.webp" alt="jacket">
-                <h2 class="info__title">Про магазин</h2>
-                <p class="info__text">KROK STREET — це простір для тих, хто формує власний стиль на стику
-                    спорту, музики та вуличного
-                    мистецтва. Ми відбираємо кросівки, худі та аксесуари, які легко комбінувати між собою і
-                    які
-                    витримують ритм справжнього міста.
+                <div class="info__textbox">
+                    <h2 class="info__title">Про магазин</h2>
+                    <p class="info__text">KROK STREET — це простір для тих, хто формує власний стиль на стику
+                        спорту, музики та вуличного
+                        мистецтва. Ми відбираємо кросівки, худі та аксесуари, які легко комбінувати між собою і
+                        які
+                        витримують ритм справжнього міста.
 
-                    Асортимент оновлюється щотижня, а розмірна сітка підходить під різні типи фігури — від
-                    XS до XL і
-                    від 40-го до 44-го.</p>
-                <div class="count">
-                    <p class="count__number">4</p>
-                    <p class="count__text">категорії товарів</p>
-                </div>
-                <div class="count">
-                    <p class="count__number">20+</p>
-                    <p class="count__text">позицій каталозі</p>
-                </div>
-                <div class="count">
-                    <p class="count__number">14</p>
-                    <p class="count__text">позицій каталозі</p>
+                        Асортимент оновлюється щотижня, а розмірна сітка підходить під різні типи фігури — від
+                        XS до XL і
+                        від 40-го до 44-го.</p>
+                    <div class="count">
+                        <div class="count__item">
+                            <p class="count__number">4</p>
+                            <p class="count__text">категорії товарів</p>
+                        </div>
+                        <div class="count__item">
+                            <p class="count__number">20+</p>
+                            <p class="count__text">позицій каталозі</p>
+                        </div>
+                        <div class="count__item">
+                            <p class="count__number">14</p>
+                            <p class="count__text">позицій каталозі</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="contacts">
-            <div class="container">
-                <h2 class="contacts__title">Контакти</h2>
-                <p class="contacts__text">Є питання щодо розміру чи замовлення? Напиши нам — відповідаємо
-                    швидко.</p>
-                <div class="contacts__textbox">
-                    <div class="ctextbox__box">
-                        <p class="ctextbox__text">Адреса</p>
-                        <p class="ctextbox__secondtext">м. Київ, вул. Дизайнерська, 12</p>
+            <div class="contacts__container">
+                <div class="contacts__maininfobox">
+                    <h2 class="contacts__title">Контакти</h2>
+                    <p class="contacts__text">Є питання щодо розміру чи замовлення? Напиши нам — відповідаємо
+                        швидко.</p>
+                    <div class="contacts__textbox">
+                        <div class="contacts__subtitles">
+                            <p>Адреса</p>
+                            <p>Телефон</p>
+                            <p>Пошта</p>
+                            <p>Графік</p>
+                        </div>
+                        <div class="contacts__addresses">
+                            <p>м. Київ, вул. Дизайнерська, 12</p>
+                            <p>+380 (67) 123-45-67</p>
+                            <p>hello@krokstreet.ua</p>
+                            <p>Пн–Нд, 10:00–20:00</p>
+                        </div>
                     </div>
-                    <div class="ctextbox__box">
-                        <p class="ctextbox__text">Телефон</p>
-                        <p class="ctextbox__secondtext">+380 (67) 123-45-67</p>
+                    <div class="contacts__iconsbox">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-telegram"></i>
+                        <i class="bi bi-tiktok"></i>
                     </div>
-                    <div class="ctextbox__box">
-                        <p class="ctextbox__text">Пошта</p>
-                        <p class="ctextbox__secondtext">hello@krokstreet.ua</p>
-                    </div>
-                    <div class="ctextbox__box">
-                        <p class="ctextbox__text">Графік</p>
-                        <p class="ctextbox__secondtext">Пн–Нд, 10:00–20:00</p>
-                    </div>
-                </div>
-                <div class="contacts__iconsbox">
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-telegram"></i>
-                    <i class="bi bi-tiktok"></i>
                 </div>
                 <img src="./imgs/package.webp" alt="package">
             </div>
@@ -301,29 +307,31 @@
                 <p class="logobox__text">Вулична культура в кожній деталі.</p>
             </div>
             <div class="footer__navigation">
-                <p class="fnavigation__text">Навігація</p>
-                <a class="fnavigation__link" href="">Головна</a>
-                <a class="fnavigation__link" href="">Каталог</a>
-                <a class="fnavigation__link" href="">Про нас</a>
-                <a class="fnavigation__link" href="">Контакти</a>
+                <p class="footer__text">Навігація</p>
+                <a class="footer__link" href="">Головна</a>
+                <a class="footer__link" href="">Каталог</a>
+                <a class="footer__link" href="">Про нас</a>
+                <a class="footer__link" href="">Контакти</a>
             </div>
             <div class="footer__categories">
-                <p class="fcategories__text">Категорії</p>
-                <a class="fcategories__link" href="">Кросівки</a>
-                <a class="fcategories__link" href="">Худі</a>
-                <a class="fcategories__link" href="">Кепки</a>
-                <a class="fcategories__link" href="">Футболки</a>
+                <p class="footer__text">Категорії</p>
+                <a class="footer__link" href="">Кросівки</a>
+                <a class="footer__link" href="">Худі</a>
+                <a class="footer__link" href="">Кепки</a>
+                <a class="footer__link" href="">Футболки</a>
             </div>
             <div class="footer__contacts">
-                <p class="fcontacts__text">Контакти</p>
+                <p class="footer__text">Контакти</p>
                 <p class="fcontacts__text">hello@krokstreet.ua</p>
                 <p class="fcontacts__text">+380 (67) 123-45-67</p>
             </div>
         </div>
     </footer>
-    <hr>
-    <p class="copyright__text">© 2026 KROK STREET. Навчальний проєкт.</p>
-    </div>
+    <section class="copyright">
+        <hr>
+        <p class="copyright__text">© 2026 KROK STREET. Навчальний проєкт.</p>
+    </section>
+
 </body>
 
 </html>
