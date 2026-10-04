@@ -62,9 +62,19 @@
                 <li></li>
                 <li class="nav-input"><i class="bi bi-search"></i><input type="text" placeholder="Пошук товарів...">
                 </li>
-                <li class="nav-img"><img src="./imgs/boxicons_cart.webp" alt=""></li>
+                <li class="nav-img" data-open-modal><img src="./imgs/boxicons_cart.webp" alt=""></li>
             </ul>
         </nav>
+        <div class="backdrop is-hidden">
+            <div class="mainmodal" data-modal>
+                <h1>Кошик</h1>
+                <button class="btn" data-close-modal>x</button>
+                <hr>
+                <img src="./imgs/boxicons_cart.webp" alt="">
+                <p>Кошик поки порожній</p>
+                <button>Дивитись каталог</button>
+            </div>
+        </div>
     </header>
     <main class="main">
         <section class="front-sect">
@@ -332,6 +342,7 @@
         <p class="copyright__text">© 2026 KROK STREET. Навчальний проєкт.</p>
     </section>
 
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>

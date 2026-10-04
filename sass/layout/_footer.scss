@@ -20,6 +20,12 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        a {
+            &:hover{
+                color: #ED3B1B;
+            }
+        }
     }
 
     &__categories {
@@ -27,6 +33,12 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        a {
+            &:hover{
+                color: #ED3B1B;
+            }
+        }
     }
 
     &__contacts {

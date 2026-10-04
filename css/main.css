@@ -215,7 +215,8 @@ body {
 
 .info {
   width: 100%;
-  padding: 70px 150px;
+  padding: 150px 150px;
+  background-color: #1A1A1E;
 }
 .info__container {
   width: 1440px;
@@ -267,7 +268,7 @@ body {
 
 .contacts {
   width: 100%;
-  padding: 130px 155px;
+  padding: 150px 155px;
 }
 .contacts__container {
   width: 1440px;
@@ -301,10 +302,16 @@ body {
   color: #B3B3B3;
   font-weight: 300;
 }
+.contacts__iconsbox {
+  margin-top: 30px;
+}
 .contacts__iconsbox i {
   font-size: 35px;
   margin-right: 25px;
   color: #B3B3B3;
+}
+.contacts__iconsbox i:hover {
+  color: #ED3B1B;
 }
 .contacts img {
   width: 650px;
@@ -332,11 +339,17 @@ body {
   flex-direction: column;
   gap: 15px;
 }
+.footer__navigation a:hover {
+  color: #ED3B1B;
+}
 .footer__categories {
   height: 177px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+.footer__categories a:hover {
+  color: #ED3B1B;
 }
 .footer__contacts {
   height: 95px;
@@ -364,4 +377,32 @@ body {
   font-family: Inter;
   font-size: 16px;
   color: #5F5F61;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.mainmodal {
+  position: absolute;
+  top: 50%;
+  min-width: 400px;
+  min-height: 300px;
+  padding: 15px;
+  background-color: #1E1E22;
+  transform: translate(-50%, -50%);
 }

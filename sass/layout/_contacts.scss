@@ -1,6 +1,6 @@
 .contacts {
     width: 100%;
-    padding: 130px 155px;
+    padding: 150px 155px;
 
 
     &__container {
@@ -42,11 +42,16 @@
     }
 
     &__iconsbox{
+        margin-top: 30px;
 
         i{
             font-size: 35px;
             margin-right: 25px;
             color: #B3B3B3;
+
+            &:hover{
+                color: #ED3B1B;
+            }
         }
     }
 
