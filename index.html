@@ -65,14 +65,18 @@
                 <li class="nav-img" data-open-modal><img src="./imgs/boxicons_cart.webp" alt=""></li>
             </ul>
         </nav>
-        <div class="backdrop is-hidden">
-            <div class="mainmodal" data-modal>
-                <h1>Кошик</h1>
-                <button class="btn" data-close-modal>x</button>
+        <div class="backdrop is-hidden" data-modal>
+            <div class="mainmodal">
+                <div class="mainmodal__top">
+                    <h1>Кошик<span>[0]</span></h1>
+                    <button class="mainmodal__closemodal" data-close-modal>⨉</button>
+                </div>
                 <hr>
-                <img src="./imgs/boxicons_cart.webp" alt="">
-                <p>Кошик поки порожній</p>
-                <button>Дивитись каталог</button>
+                <div class="mainmodal__midle">
+                    <i class="bi bi-cart"></i>
+                    <p class="mainmodal__text">Кошик поки порожній</p>
+                    <button class="mainmodal__button">Дивитись каталог</button>
+                </div>
             </div>
         </div>
     </header>
