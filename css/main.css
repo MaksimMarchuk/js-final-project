@@ -194,6 +194,7 @@ body {
   width: 452px;
   height: 293px;
   align-self: flex-start;
+  z-index: -3;
 }
 .main .front-sect .front-img-div .front-img-div-first .front-cap-img {
   width: 210.2px;
@@ -201,7 +202,7 @@ body {
   position: relative;
   bottom: 120px;
   align-self: flex-end;
-  z-index: 0;
+  z-index: -2;
 }
 .main .front-sect .front-img-div .front-img-div-two {
   display: flex;
@@ -212,6 +213,7 @@ body {
   position: relative;
   right: 150px;
   bottom: 35px;
+  z-index: -1;
 }
 
 .catalog-sect {
@@ -380,7 +382,6 @@ body {
 }
 
 .info {
-  width: 100%;
   padding: 150px 150px;
   background-color: #1A1A1E;
 }
@@ -433,7 +434,6 @@ body {
 }
 
 .contacts {
-  width: 100%;
   padding: 150px 155px;
 }
 .contacts__container {
@@ -486,7 +486,6 @@ body {
 .footer {
   font-family: Inter;
   font-size: 16px;
-  width: 100%;
   padding: 70px 150px;
   color: #B3B3B3;
   background-color: #1A1A1E;
@@ -559,10 +558,6 @@ body {
   pointer-events: none;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 .mainmodal {
   position: absolute;
   min-width: 400px;
@@ -597,12 +592,12 @@ body {
   background-color: #28282B;
   border: solid 1px #434343;
   border-radius: 50%;
+  cursor: pointer;
 }
 .mainmodal__midle {
-  display: none;
   margin: 300px 55px;
   font-family: "Inter", sans-serif;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -614,22 +609,35 @@ body {
 .mainmodal__midle p {
   font-size: 18px;
 }
+.mainmodal__midle__bottomTextbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mainmodal__midle__bottomTextbox p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
 .mainmodal__button {
   width: 252px;
   height: 69px;
   background-color: #FF3D1A;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainmodal__button a {
   font-family: Montserrat;
   font-weight: 600;
   font-style: SemiBold;
   font-size: 20px;
   line-height: 27px;
   letter-spacing: -2%;
-  text-align: center;
-  vertical-align: middle;
+  text-decoration: none;
   color: #131316;
-  border-style: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .cardModal {
@@ -637,9 +645,8 @@ body {
   flex-direction: row;
   align-items: center;
   width: 359px;
-  height: 105px;
   gap: 25px;
-  padding: 20px 0px;
+  padding-block: 16px;
   border-bottom: solid 1px #434343;
 }
 .cardModal__title {
@@ -660,6 +667,7 @@ body {
   font-weight: 400;
   text-decoration: underline;
   color: #7A7A7A;
+  cursor: pointer;
 }
 .cardModal__price {
   font-family: "Inter", sans-serif;
@@ -684,6 +692,7 @@ body {
   background-color: #28282B;
   color: #fff;
   border: #28282B;
+  cursor: pointer;
 }
 .counter p {
   font-family: "Inter", sans-serif;
