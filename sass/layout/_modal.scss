@@ -22,11 +22,11 @@
 .mainmodal {
   position: absolute;
   min-width: 400px;
-  min-height: 890px;
+  height: 100%;
   padding: 15px;
   top: 50%;
   right: 0px;
-  background-color: #1E1E22;
+  background-color: #28282B;
   transform: translateY(-50%);
   z-index: 3;
 
@@ -40,6 +40,7 @@
     align-items: center;
     justify-content: space-between;
     min-width: 400px;
+    border-bottom: solid 1px #434343;
 
     h1 {
       font-family: $font-numbers;
@@ -52,21 +53,15 @@
     height: 35px;
     color: #fff;
     font-size: 16px;
-    background-color: #1E1E22;
+    background-color: #28282B;
     border: solid 1px #434343;
     border-radius: 50%;
   }
 
-  hr {
-    border: none;
-    height: 2px;
-    width: 400px;
-    background-color: #434343;
-  }
-
   &__midle {
+    display: none;
     margin: 300px 55px;
-    font-family: Inter;
+    font-family: $font-primary;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,6 +94,72 @@
     border-radius: 5px;
     cursor: pointer;
   }
+}
+
+.cardModal{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 359px;
+  height: 105px;
+  gap: 25px;
+  padding: 20px 0px;
+  border-bottom: solid 1px #434343;
+
+  &__title{
+    font-family: $font-primary;
+    font-size: 16px;
+    margin: 0px;
+  }
+
+  &__subtitle{
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: 400;
+    color: #7A7A7A;
+    margin-top: 5px;
+  }
+
+  &__delete{
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+    color: #7A7A7A;
+  }
+
+  &__price{
+    font-family: $font-primary;
+  }
 
 
+
+
+  img{
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+  }
+}
+
+.counter{
+  display: flex;
+  flex-direction: row;
+  height: 17px;
+  width: 50px;
+  gap: 5px;
+  border: solid 1px #353535;
+  border-radius: 5px;
+  padding: 5px;
+
+  button{
+    background-color: #28282B;
+    color: #fff;
+    border: #28282B;
+  }
+
+  p{
+    font-family: $font-primary;
+    margin: 0px;
+  }
 }
