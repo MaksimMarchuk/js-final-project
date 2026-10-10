@@ -12,7 +12,7 @@ const PRODUCTS = [
     price: 2399,
     oldPrice: null,
     icon: "icon-sneaker",
-    art: "art-1",
+    art: "imgs/sneakers-first.webp",
     sizes: ["40", "41", "42", "43", "44"],
     inStock: true,
     description: "Легкі бігові кросівки з рельєфною підошвою — тримають зчеплення на будь-якому асфальті."
@@ -25,7 +25,7 @@ const PRODUCTS = [
     price: 1899,
     oldPrice: 2299,
     icon: "icon-sneaker",
-    art: "art-3",
+    art: "imgs/sneakers-two.webp",
     sizes: ["40", "41", "42", "43"],
     inStock: true,
     description: "Класична баскетбольна модель у сучасному прочитанні, з підсиленим носком."
@@ -38,7 +38,7 @@ const PRODUCTS = [
     price: 2199,
     oldPrice: null,
     icon: "icon-sneaker",
-    art: "art-2",
+    art: "imgs/sneakers-three.webp",
     sizes: ["41", "42", "43", "44"],
     inStock: false,
     description: "Яскрава модель для тих, хто хоче виділятись у натовпі — гнучка підошва, сітчастий верх."
@@ -51,7 +51,7 @@ const PRODUCTS = [
     price: 2650,
     oldPrice: null,
     icon: "icon-sneaker",
-    art: "art-7",
+    art: "imgs/sneakers-four.webp",
     sizes: ["40", "41", "42", "43", "44"],
     inStock: true,
     description: "Технологічна модель з амортизацією в п’яті — для довгих прогулянок містом."
@@ -64,7 +64,7 @@ const PRODUCTS = [
     price: 1450,
     oldPrice: null,
     icon: "icon-hoodie",
-    art: "art-1",
+    art: "imgs/hoodie-first.webp",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     description: "Щільне худі з великим принтом на спині та кишенею-кенгуру."
@@ -77,7 +77,7 @@ const PRODUCTS = [
     price: 1590,
     oldPrice: null,
     icon: "icon-hoodie",
-    art: "art-3",
+    art: "imgs/hoodie-two.webp",
     sizes: ["XS", "S", "M", "L"],
     inStock: true,
     description: "М’яка бавовна з ефектом «вимитості» — виглядає носеним з першого дня."
@@ -90,7 +90,7 @@ const PRODUCTS = [
     price: 1690,
     oldPrice: 1990,
     icon: "icon-hoodie",
-    art: "art-7",
+    art: "imgs/hoodie-three.webp",
     sizes: ["M", "L", "XL"],
     inStock: true,
     description: "Об’ємний крій, світловідбивний принт спереду — помітно навіть увечері."
@@ -103,7 +103,7 @@ const PRODUCTS = [
     price: 1380,
     oldPrice: null,
     icon: "icon-hoodie",
-    art: "art-6",
+    art: "imgs/hoodie-four.webp",
     sizes: ["S", "M", "L"],
     inStock: true,
     description: "Легша щільність тканини — для міжсезоння та прохолодних вечорів."
@@ -116,7 +116,7 @@ const PRODUCTS = [
     price: 599,
     oldPrice: null,
     icon: "icon-cap",
-    art: "art-1",
+    art: "imgs/cap-first.webp",
     sizes: ["S/M", "L/XL"],
     inStock: true,
     description: "Низька посадка, регульований ремінець ззаду, вишитий лого."
@@ -129,7 +129,7 @@ const PRODUCTS = [
     price: 649,
     oldPrice: 799,
     icon: "icon-cap",
-    art: "art-4",
+    art: "imgs/cap-two.webp",
     sizes: ["S/M", "L/XL"],
     inStock: true,
     description: "Щільна бавовна кольору хакі-жовтий, підходить під будь-який образ."
@@ -142,7 +142,7 @@ const PRODUCTS = [
     price: 620,
     oldPrice: null,
     icon: "icon-cap",
-    art: "art-7",
+    art: "imgs/cap-three.webp",
     sizes: ["S/M"],
     inStock: true,
     description: "Оксамитова текстура і контрастна вишивка спереду."
@@ -155,7 +155,7 @@ const PRODUCTS = [
     price: 549,
     oldPrice: null,
     icon: "icon-cap",
-    art: "art-5",
+    art: "imgs/cap-four.webp",
     sizes: ["S/M", "L/XL"],
     inStock: false,
     description: "Легка модель із сітчастою вставкою ззаду для вентиляції."
@@ -168,7 +168,7 @@ const PRODUCTS = [
     price: 490,
     oldPrice: null,
     icon: "icon-tee",
-    art: "art-3",
+    art: "imgs/t-shrirt-first.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
     inStock: true,
     description: "Базова футболка щільної в’язки — основа для будь-якого образу."
@@ -181,7 +181,7 @@ const PRODUCTS = [
     price: 590,
     oldPrice: 720,
     icon: "icon-tee",
-    art: "art-1",
+    art: "imgs/t-shrirt-two.webp",
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     description: "Великий графічний принт на всю грудну зону, оверсайз крій."
@@ -194,7 +194,7 @@ const PRODUCTS = [
     price: 540,
     oldPrice: null,
     icon: "icon-tee",
-    art: "art-6",
+    art: "imgs/t-shrirt-three.webp",
     sizes: ["S", "M", "L"],
     inStock: true,
     description: "Легка тканина з дрібним принтом силуету міста на рукаві."
@@ -207,7 +207,7 @@ const PRODUCTS = [
     price: 470,
     oldPrice: null,
     icon: "icon-tee",
-    art: "art-4",
+    art: "imgs/t-shrirt-four.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
     inStock: true,
     description: "Мінімалістичний лого на грудях, класичний прямий крій."

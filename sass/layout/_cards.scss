@@ -1,0 +1,123 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 90px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    .product-card {
+        width: 300px;
+        height: 515px;
+        background-color: #1E1E22;
+        border-radius: 20px;
+        border: 1px solid #2C2C31;
+
+        .badge-sale {
+            position: absolute;
+            color: #FFFFFF;
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            background-color: #000000;
+            padding: 10px 20px 10px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .badge-out {
+            position: absolute;
+            color: #FFFFFF;
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            background-color: #484545;
+            padding: 10px 20px 10px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .card-img {
+            width: 301px;
+            height: 264px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-category {
+            font-family: Inter;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #5F5F61;
+            margin-left: 10%;
+        }
+
+        .card-title {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            margin-left: 10%;
+        }
+
+        .card-price {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            margin-left: 10%;
+        }
+
+        .card-old-price {
+            font-family: Inter;
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-decoration: line-through;
+            color: #5F5F61;
+            margin-left: 20px;
+        }
+
+        .cart-btn {
+            width: 246px;
+            height: 52px;
+            border-style: none;
+            outline-style: none;
+            border: 1px solid #2C2C31;
+            background-color: #1E1E22;
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #FFFFFF;
+            margin-left: 9%;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+
+        .disabled{
+            color: #5F5F61;
+            cursor: no-drop;
+        }
+    }
+}
