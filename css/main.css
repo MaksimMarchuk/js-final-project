@@ -698,3 +698,117 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0px;
 }
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 90px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.products-container .product-card {
+  width: 300px;
+  height: 515px;
+  background-color: #1E1E22;
+  border-radius: 20px;
+  border: 1px solid #2C2C31;
+}
+.products-container .product-card .badge-sale {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background-color: #000000;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.products-container .product-card .badge-out {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background-color: #484545;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.products-container .product-card .card-img {
+  width: 301px;
+  height: 264px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 20px;
+}
+.products-container .product-card .card-category {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #5F5F61;
+  margin-left: 10%;
+}
+.products-container .product-card .card-title {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-left: 10%;
+}
+.products-container .product-card .card-price {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-left: 10%;
+}
+.products-container .product-card .card-old-price {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-decoration: line-through;
+  color: #5F5F61;
+  margin-left: 20px;
+}
+.products-container .product-card .cart-btn {
+  width: 246px;
+  height: 52px;
+  border-style: none;
+  outline-style: none;
+  border: 1px solid #2C2C31;
+  background-color: #1E1E22;
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+  margin-left: 9%;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.products-container .product-card .disabled {
+  color: #5F5F61;
+  cursor: no-drop;
+}
