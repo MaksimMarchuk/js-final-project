@@ -1,10 +1,9 @@
 .contacts {
-    width: 100%;
     padding: 150px 155px;
 
 
     &__container {
-        width: 1440px;
+        max-width: 1440px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

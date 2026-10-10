@@ -71,11 +71,35 @@
                     <h1>Кошик<span>[0]</span></h1>
                     <button class="mainmodal__closemodal" data-close-modal>⨉</button>
                 </div>
-                <hr>
+                <div class="cardModal">
+                    <img src="./imgs/sneakers-first.webp" alt="">
+                    <div class="cardModal__textbox">
+                        <h2 class="cardModal__title">Кросівки Vortex Runner</h2>
+                        <h3 class="cardModal__subtitle">Кросівки • розмір 40</h3>
+                        <div class="counter">
+                            <button>-</button>
+                            <p>1</p>
+                            <button>+</button>
+                        </div>
+                        <p class="cardModal__delete">Видалити</p>
+                    </div>
+                    <p class="cardModal__price">4 798 $</p>
+                </div>
                 <div class="mainmodal__midle">
                     <i class="bi bi-cart"></i>
                     <p class="mainmodal__text">Кошик поки порожній</p>
-                    <button class="mainmodal__button">Дивитись каталог</button>
+                    <div class="mainmodal__button"><a href="#catalog">Дивитись каталог</a></div>
+                </div>
+                <div class="mainmodalBottom">
+                    <div class="mainmodalBottom__textbox">
+                        <p>Товарів</p>
+                        <p>0</p>
+                    </div>
+                    <div class="mainmodalBottom__price">
+                        <p>Разом</p>
+                        <p>0 ₴</p>
+                    </div>
+                    <button class="mainmodalBottom__button">Оформити замовлення</button>
                 </div>
             </div>
         </div>
@@ -103,7 +127,7 @@
                 </div>
             </div>
         </section>
-        <section class="catalog-sect">
+        <section class="catalog-sect" id="catalog">
             <div class="catalog-text-div">
                 <div class="catalog-info-div">
                     <h1>Каталог</h1>

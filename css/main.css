@@ -194,6 +194,7 @@ body {
   width: 452px;
   height: 293px;
   align-self: flex-start;
+  z-index: -3;
 }
 .main .front-sect .front-img-div .front-img-div-first .front-cap-img {
   width: 210.2px;
@@ -201,7 +202,7 @@ body {
   position: relative;
   bottom: 120px;
   align-self: flex-end;
-  z-index: 0;
+  z-index: -2;
 }
 .main .front-sect .front-img-div .front-img-div-two {
   display: flex;
@@ -212,6 +213,7 @@ body {
   position: relative;
   right: 150px;
   bottom: 35px;
+  z-index: -1;
 }
 
 .catalog-sect {
@@ -380,7 +382,6 @@ body {
 }
 
 .info {
-  width: 100%;
   padding: 150px 150px;
   background-color: #1A1A1E;
 }
@@ -392,7 +393,7 @@ body {
   align-items: flex-start;
 }
 .info__textbox {
-  width: 700px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -433,11 +434,10 @@ body {
 }
 
 .contacts {
-  width: 100%;
   padding: 150px 155px;
 }
 .contacts__container {
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -486,13 +486,12 @@ body {
 .footer {
   font-family: Inter;
   font-size: 16px;
-  width: 100%;
   padding: 70px 150px;
   color: #B3B3B3;
   background-color: #1A1A1E;
 }
 .footer__container {
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -559,18 +558,14 @@ body {
   pointer-events: none;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 .mainmodal {
   position: absolute;
   min-width: 400px;
-  min-height: 890px;
+  height: 100%;
   padding: 15px;
   top: 50%;
   right: 0px;
-  background-color: #1E1E22;
+  background-color: #28282B;
   transform: translateY(-50%);
   z-index: 3;
   display: flex;
@@ -583,6 +578,7 @@ body {
   align-items: center;
   justify-content: space-between;
   min-width: 400px;
+  border-bottom: solid 1px #434343;
 }
 .mainmodal__top h1 {
   font-family: "Oswald", sans-serif;
@@ -593,20 +589,15 @@ body {
   height: 35px;
   color: #fff;
   font-size: 16px;
-  background-color: #1E1E22;
+  background-color: #28282B;
   border: solid 1px #434343;
   border-radius: 50%;
-}
-.mainmodal hr {
-  border: none;
-  height: 2px;
-  width: 400px;
-  background-color: #434343;
+  cursor: pointer;
 }
 .mainmodal__midle {
   margin: 300px 55px;
-  font-family: Inter;
-  display: flex;
+  font-family: "Inter", sans-serif;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -618,20 +609,92 @@ body {
 .mainmodal__midle p {
   font-size: 18px;
 }
+.mainmodal__midle__bottomTextbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mainmodal__midle__bottomTextbox p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
 .mainmodal__button {
   width: 252px;
   height: 69px;
   background-color: #FF3D1A;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainmodal__button a {
   font-family: Montserrat;
   font-weight: 600;
   font-style: SemiBold;
   font-size: 20px;
   line-height: 27px;
   letter-spacing: -2%;
-  text-align: center;
-  vertical-align: middle;
+  text-decoration: none;
   color: #131316;
-  border-style: none;
-  border-radius: 5px;
+}
+
+.cardModal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 359px;
+  gap: 25px;
+  padding-block: 16px;
+  border-bottom: solid 1px #434343;
+}
+.cardModal__title {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin: 0px;
+}
+.cardModal__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7A7A7A;
+  margin-top: 5px;
+}
+.cardModal__delete {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+  color: #7A7A7A;
   cursor: pointer;
+}
+.cardModal__price {
+  font-family: "Inter", sans-serif;
+}
+.cardModal img {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  height: 17px;
+  width: 50px;
+  gap: 5px;
+  border: solid 1px #353535;
+  border-radius: 5px;
+  padding: 5px;
+}
+.counter button {
+  background-color: #28282B;
+  color: #fff;
+  border: #28282B;
+  cursor: pointer;
+}
+.counter p {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
 }
