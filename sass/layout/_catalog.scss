@@ -60,6 +60,12 @@
                 }
             }
         }
+
+        .catalog-btn-div button.active {
+            color: #000000;
+            background-color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+        }
     }
 
     .sorting-div {

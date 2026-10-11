@@ -167,22 +167,22 @@
                     <h2>Обирай категорію, фільтруй за ціною та розміром — знайди свій образ.</h2>
                 </div>
                 <div class="catalog-btn-div">
-                    <button>Усе</button>
-                    <button>Кроссівки</button>
-                    <button>Худі</button>
-                    <button>Кепки</button>
-                    <button>Футболки</button>
+                    <button class="active" data-category="Усе">Усе</button>
+                    <button data-category="Кросівки">Кросі́вки</button>
+                    <button data-category="Худі">Худі</button>
+                    <button data-category="Кепки">Кепки</button>
+                    <button data-category="Футболки">Футболки</button>
                 </div>
             </div>
             <div class="sorting-div">
                 <p>Сортування</p>
                 <div class="sorting-interactive-div">
-                    <select name="" id="">
+                    <select name="" id="sortSelect">
                         <option value="0">За замовчуванням</option>
                         <option value="1">Від дешевшого до дорощого</option>
                         <option value="2">Від дорощого до дешевшого</option>
                     </select>
-                    <label class="switch">
+                    <label class="switch" id="filterBtn">
                         <input type="checkbox" id="toggle">
                         <span class="slider round"></span>
                     </label>

@@ -12,6 +12,12 @@
         background-color: #1E1E22;
         border-radius: 20px;
         border: 1px solid #2C2C31;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
 
         .badge-sale {
             position: absolute;
@@ -115,9 +121,271 @@
             cursor: pointer;
         }
 
-        .disabled{
+        .disabled {
             color: #5F5F61;
             cursor: no-drop;
+        }
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.modal-content {
+    width: 937px;
+    height: 609px;
+    background-color: #1E1E22;
+    border-radius: 30px;
+    display: flex;
+
+    .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        padding-left: 11px;
+        padding-right: 11px;
+        border-style: none;
+        outline-style: none;
+        border-radius: 60px;
+        background-color: #1E1E22;
+        color: white;
+        border: 1px solid #2C2C31;
+        position: relative;
+        left: 890px;
+        top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+    }
+
+    .badge-sale {
+        position: absolute;
+        color: #FFFFFF;
+        font-family: Inter;
+        font-weight: 600;
+        font-style: Semi Bold;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        background-color: #000000;
+        padding: 10px 20px 10px 20px;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .badge-out {
+        position: absolute;
+        color: #FFFFFF;
+        font-family: Inter;
+        font-weight: 600;
+        font-style: Semi Bold;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        background-color: #484545;
+        padding: 10px 20px 10px 20px;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .modal-image-box {
+
+        .modal-img {
+            width: 503px;
+            height: 542px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+    }
+
+    .modal-info {
+        margin-top: 50px;
+        margin-left: 20px;
+
+        .modal-brand-category {
+            font-family: Inter;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #A3A3AB;
+        }
+
+        .modal-title {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 32px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            width: 300px;
+        }
+
+        .modal-quantity-section {
+            margin-top: 20px;
+
+            .modal-quantity-label {
+                font-family: Inter;
+                font-weight: 600;
+                font-style: Semi Bold;
+                font-size: 16px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                color: #5F5F61;
+            }
+
+            .quantity-control {
+                border: 2px solid #2C2C31;
+                width: 101px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-left: 2%;
+                padding-right: 2%;
+
+                .qty-btn {
+                    border-style: none;
+                    outline-style: none;
+                    background-color: #1E1E22;
+                    color: #FFFFFF;
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+
+                .qty-value {
+                    font-family: Inter;
+                    font-weight: 700;
+                    font-style: Bold;
+                    font-size: 16px;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        .modal-stock {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #FFEC3D;
+            margin-top: 20px;
+        }
+
+        .modal-submit-btn {
+            width: 325px;
+            height: 52px;
+            border-radius: 5px;
+            border-style: none;
+            outline-style: none;
+            background-color: #FF3D1A;
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #1E1E22;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+    }
+
+    .modal-price {
+        font-family: Inter;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    .modal-old-price {
+        font-family: Inter;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-decoration: line-through;
+        color: #5F5F61;
+        margin-left: 15px;
+    }
+
+    .modal-description {
+        font-family: Inter;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #B3B3B3;
+        width: 300px;
+    }
+
+    .modal-sizes-section {
+
+        .modal-sizes-label {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #5F5F61;
+        }
+
+        .modal-sizes-list {
+            cursor: default;
+            display: flex;
+            gap: 10px;
+
+            .size-btn {
+                border-style: none;
+                outline-style: none;
+                font-family: Inter;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 16px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                background-color: #1E1E22;
+                border: 1px solid #2C2C31;
+                color: #FFFFFF;
+                width: 45px;
+                height: 40px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #FF3D1A;
+                    color: #000000;
+                }
+            }
         }
     }
 }
