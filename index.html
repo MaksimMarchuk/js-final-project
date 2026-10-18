@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krok Street</title>
-    <link rel="preconn#28282bfe5cef=" https://fonts.googleapis.com">
+    <link rel="preconn#28282bfe5cef="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,26 +66,26 @@
             </ul>
         </nav>
         <div class="backdrop is-hidden" data-modal>
-            <div class="mainmodal">
+            <div class="mainmodal" id="mainModal">
                 <div class="mainmodal__top">
-                    <h1>Кошик<span>[0]</span></h1>
+                    <h1>Кошик<span id="cartCount">[0]</span></h1>
                     <button class="mainmodal__closemodal" data-close-modal>⨉</button>
                 </div>
-                <div class="cardModal">
+                <div class="cardModal" id="cartCard">
                     <img src="./imgs/sneakers-first.webp" alt="">
                     <div class="cardModal__textbox">
                         <h2 class="cardModal__title">Кросівки Vortex Runner</h2>
                         <h3 class="cardModal__subtitle">Кросівки • розмір 40</h3>
                         <div class="counter">
                             <button>-</button>
-                            <p>1</p>
+                            <p id="itemCount">1</p>
                             <button>+</button>
                         </div>
-                        <p class="cardModal__delete">Видалити</p>
+                        <p class="cardModal__delete" id="deleteItem">Видалити</p>
                     </div>
                     <p class="cardModal__price">4 798 $</p>
                 </div>
-                <div class="mainmodal__midle">
+                <div class="mainmodal__midle"  id="emptyCartMessage">
                     <i class="bi bi-cart"></i>
                     <p class="mainmodal__text">Кошик поки порожній</p>
                     <div class="mainmodal__button"><a href="#catalog">Дивитись каталог</a></div>
@@ -291,6 +291,7 @@
     <script src="./js/modal.js"></script>
     <script src="./js/dital.js"></script>
     <script src="./js/cards.js"></script>
+    <script src="./js/corb.js"></script>
 </body>
 
 </html>

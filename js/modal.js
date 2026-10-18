@@ -14,6 +14,16 @@
   }
 })();
 
+const modallinks = document.querySelector('#mainModal a');
+const backdrop = document.querySelector('[data-modal]');
+
+if (catalogLink && backdrop) {
+  catalogLink.addEventListener('click', function() {
+
+    backdrop.classList.add('is-hidden');;
+  });
+}
+
 (() => {
   const refs = {
     openModalBtn: document.querySelector("[data-open-modal-form]"),

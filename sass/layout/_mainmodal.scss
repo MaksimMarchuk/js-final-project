@@ -60,7 +60,7 @@
   &__midle {
     margin: 300px 55px;
     font-family: $font-primary;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -78,7 +78,7 @@
   }
 
   .mainmodalBottom {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     width: 100%;
@@ -152,7 +152,7 @@
 }
 
 .cardModal {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   width: 359px;
