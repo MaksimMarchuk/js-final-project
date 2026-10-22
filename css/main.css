@@ -150,6 +150,9 @@ body {
   gap: 20px;
 }
 .main .front-sect .front-main-div .front-btn-div .catalog-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   width: 252px;
   height: 69px;
@@ -392,7 +395,6 @@ body {
   background-color: #1A1A1E;
 }
 .info__container {
-  width: 1440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -745,12 +747,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .modalForm h1 {
   font-family: "Onest", sans-serif;
   font-size: 36px;
 }
 .modalForm__closemodal {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 35px;
   height: 35px;
   color: #fff;
@@ -760,7 +768,8 @@ body {
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
-  left: 660px;
+  left: 1460px;
+  top: 10px;
 }
 .modalForm__form {
   display: flex;
@@ -769,6 +778,10 @@ body {
   gap: 36px;
 }
 .modalForm__button {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 603px;
   height: 69px;
   background-color: #FF3D1A;
@@ -782,6 +795,10 @@ body {
   border-style: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.modalForm__button:disabled {
+  background-color: #686869;
+  cursor: not-allowed;
 }
 
 .formName {
@@ -808,6 +825,7 @@ body {
   padding: 13px;
   font-family: "Inter", sans-serif;
   font-size: 16px;
+  outline-style: none;
 }
 
 .formSurname {
@@ -919,6 +937,34 @@ body {
 .formCookies a {
   color: #fff;
   font-weight: 600;
+}
+
+.modalForm__form input[type=text] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #434343;
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+  background: transparent;
+}
+
+.modalForm__form input[type=text]:focus {
+  border-color: #434343;
+}
+
+.modalForm__form input.error {
+  border-color: #ff4d4d !important;
+}
+
+.modalForm__form input[type=text]:-webkit-autofill,
+.modalForm__form input[type=text]:-webkit-autofill:hover,
+.modalForm__form input[type=text]:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #222222 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .products-container {
