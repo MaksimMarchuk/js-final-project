@@ -49,6 +49,9 @@
                 gap: 20px;
 
                 .catalog-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     text-decoration: none;
                     width: 252px;
                     height: 69px;

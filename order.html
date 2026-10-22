@@ -1,31 +1,46 @@
-<div class="modalForm">
-                <h1>Оформити замовлення</h1>
-                <button class="modalForm__closemodal" data-close-modal-form>⨉</button>
-                <form class="modalForm__form">
-                    <div class="formName">
-                        <p>Name<span>*</span></p>
-                        <input class="formName__input" type="text" placeholder="name">
-                    </div>
-                    <div class="formSurname">
-                        <p>Surname<span>*</span></p>
-                        <input class="formSurname__input" type="text" placeholder="surname">
-                    </div>
-                    <div class="formEmail">
-                        <p>E-mail<span>*</span></p>
-                        <input class="formEmail__input" type="text" placeholder="e-mail">
-                    </div>
-                    <div class="formPhone">
-                        <p>Phone<span>*</span></p>
-                        <input class="formPhone__input" type="text" placeholder="phone">
-                    </div>
-                    <div class="formAddress">
-                        <p>Address<span>*</span></p>
-                        <input class="formAddress__input" type="text" placeholder="address">
-                    </div>
-                    <div class="formCookies">
-                        <input class="formCookies__checkbox" type="checkbox"></input>
-                        <p>Я погоджуюся з умовами використання <a href="">файлів cookie</a></p>
-                    </div>
-                    <button class="modalForm__button">Оформити замовлення</button>
-                </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="modalForm">
+        <h1>Оформити замовлення</h1>
+        <a class="modalForm__closemodal" href="./index.html">⨉</a>
+        <form class="modalForm__form">
+            <div class="formName">
+                <p>Name<span>*</span></p>
+                <input class="formName__input" id="name-input" type="text" placeholder="name">
             </div>
+            <div class="formSurname">
+                <p>Surname<span>*</span></p>
+                <input class="formSurname__input" id="surname-input" type="text" placeholder="surname">
+            </div>
+            <div class="formEmail">
+                <p>E-mail<span>*</span></p>
+                <input class="formEmail__input" id="email-input" type="text" placeholder="e-mail">
+            </div>
+            <div class="formPhone">
+                <p>Phone<span>*</span></p>
+                <input class="formPhone__input" id="phone-input" type="text" placeholder="phone">
+            </div>
+            <div class="formAddress">
+                <p>Address<span>*</span></p>
+                <input class="formAddress__input" id="address-input" type="text" placeholder="address">
+            </div>
+            <div class="formCookies">
+                <input class="formCookies__checkbox" type="checkbox" id="agree-checkbox"></input>
+                <p>Я погоджуюся з умовами використання <a href="">файлів cookie</a></p>
+            </div>
+            <button class="modalForm__button" id="submit-btn" disabled href="./index.html">Оформити замовлення</button>
+        </form>
+    </div>
+    <script src="./js/order.js"></script>
+</body>
+
+</html>
