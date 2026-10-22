@@ -2,9 +2,9 @@ const container = document.querySelector('.products-container');
 
 function renderProducts(products) {
   const cardsHTML = products.map(product => {
-    
-    const oldPriceHTML = product.oldPrice 
-      ? `<span class="card-old-price">${product.oldPrice} ₴</span>` 
+
+    const oldPriceHTML = product.oldPrice
+      ? `<span class="card-old-price">${product.oldPrice} ₴</span>`
       : '';
 
     let badgeHTML = '';
@@ -58,8 +58,14 @@ container.addEventListener('click', (event) => {
 });
 
 function openProductModal(product) {
-  const modalOldPriceHTML = product.oldPrice 
-    ? `<span class="modal-old-price">${product.oldPrice} ₴</span>` 
+  if (searchInput) {
+    searchInput.value = '';
+    searchDropdown.classList.add('hidden');
+    searchDropdown.innerHTML = '';
+  }
+
+  const modalOldPriceHTML = product.oldPrice
+    ? `<span class="modal-old-price">${product.oldPrice} ₴</span>`
     : '';
 
   let modalBadgeHTML = '';
@@ -69,17 +75,22 @@ function openProductModal(product) {
     modalBadgeHTML = `<span class="modal-badge badge-out">Немає в наявності</span>`;
   }
 
-  const sizesHTML = product.sizes 
+  const sizesHTML = product.sizes
     ? product.sizes.map((size, index) => `
         <button class="size-btn ${index === 0 ? 'active' : ''}">${size}</button>
-      `).join('') 
+      `).join('')
     : '';
 
   const stockText = product.inStock ? 'Є в наявності' : 'Немає в наявності';
   const stockClass = product.inStock ? 'in-stock' : 'out-of-stock';
 
+
+  const submitButtonHTML = product.inStock
+    ? `<button class="modal-submit-btn">Додати кошик</button>`
+    : '';
+
   let modalContainer = document.getElementById('productModal');
-  
+
   if (!modalContainer) {
     modalContainer = document.createElement('div');
     modalContainer.id = 'productModal';
@@ -109,9 +120,7 @@ function openProductModal(product) {
         
         <div class="modal-sizes-section">
           <span class="modal-sizes-label">Розмір</span>
-          <div class="modal-sizes-list">
-            ${sizesHTML}
-          </div>
+          <div class="modal-sizes-list">${sizesHTML}</div>
         </div>
 
         <div class="modal-quantity-section">
@@ -125,40 +134,31 @@ function openProductModal(product) {
         
         <div class="modal-stock ${stockClass}">${stockText}</div>
         
-        <button class="modal-submit-btn" ${!product.inStock ? 'disabled' : ''}>Додати кошик</button>
+        ${submitButtonHTML}
       </div>
     </div>
   `;
+
+  modalContainer.classList.remove('hidden');
 
   const minusBtn = modalContainer.querySelector('.qty-btn.minus');
   const plusBtn = modalContainer.querySelector('.qty-btn.plus');
   const qtyValue = modalContainer.querySelector('.qty-value');
 
-  let currentQty = 1;
-
-  minusBtn.addEventListener('click', () => {
-    if (currentQty > 1) {
-      currentQty--;
-      qtyValue.textContent = currentQty;
-    }
-  });
-
-  plusBtn.addEventListener('click', () => {
-    currentQty++;
-    qtyValue.textContent = currentQty;
-  });
-
-  modalContainer.classList.remove('hidden');
+  if (minusBtn && plusBtn && qtyValue) {
+    let currentQty = 1;
+    minusBtn.addEventListener('click', () => {
+      if (currentQty > 1) { currentQty--; qtyValue.textContent = currentQty; }
+    });
+    plusBtn.addEventListener('click', () => {
+      currentQty++; qtyValue.textContent = currentQty;
+    });
+  }
 
   const closeBtn = modalContainer.querySelector('.modal-close');
-  closeBtn.addEventListener('click', () => {
-    modalContainer.classList.add('hidden');
-  });
-
+  closeBtn.addEventListener('click', () => modalContainer.classList.add('hidden'));
   modalContainer.addEventListener('click', (e) => {
-    if (e.target === modalContainer) {
-      modalContainer.classList.add('hidden');
-    }
+    if (e.target === modalContainer) modalContainer.classList.add('hidden');
   });
 }
 
@@ -171,8 +171,8 @@ renderProducts(PRODUCTS);
 const toggleCheckbox = document.getElementById('toggle');
 
 toggleCheckbox.addEventListener('change', () => {
-  const productsToRender = toggleCheckbox.checked 
-    ? PRODUCTS.filter(product => product.inStock) 
+  const productsToRender = toggleCheckbox.checked
+    ? PRODUCTS.filter(product => product.inStock)
     : PRODUCTS;
 
   renderProducts(productsToRender);
@@ -207,7 +207,7 @@ const buttons = document.querySelectorAll('.catalog-btn-div button');
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     buttons.forEach(btn => btn.classList.remove('active'));
-    
+
     button.classList.add('active');
   });
 });
@@ -254,3 +254,84 @@ categoryButtons.forEach(button => {
 
 toggleCheckbox.addEventListener('change', updateProducts);
 sortSelect.addEventListener('change', updateProducts);
+
+const searchInput = document.getElementById('searchInput');
+const searchDropdown = document.getElementById('searchDropdown');
+
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.trim().toLowerCase();
+
+  if (query === '') {
+    searchDropdown.classList.add('hidden');
+    searchDropdown.innerHTML = '';
+    return;
+  }
+
+  const searchWords = query.split(/\s+/);
+  const matchedProducts = PRODUCTS.filter(product => {
+    const productName = product.name.toLowerCase();
+    return searchWords.every(word => productName.includes(word));
+  });
+
+  const topProducts = matchedProducts.slice(0, 3);
+
+  if (topProducts.length === 0) {
+    searchDropdown.innerHTML = `<div class="search-no-result">Нічого не знайдено</div>`;
+    searchDropdown.classList.remove('hidden');
+    return;
+  }
+
+  searchDropdown.innerHTML = topProducts.map(product => {
+
+    const oldPriceHTML = product.oldPrice
+      ? `<span class="dropdown-old-price">${product.oldPrice} ₴</span>`
+      : '';
+
+    const stockClass = product.inStock ? '' : 'out-of-stock-item';
+    const stockBadgeHTML = !product.inStock
+      ? `<span class="dropdown-stock-text">Немає в наявності</span>`
+      : '';
+
+    return `
+      <div class="search-dropdown-item ${stockClass}" data-id="${product.id}">
+        <div class="dropdown-img-box">
+          <img src="${product.art}" alt="${product.name}" class="dropdown-item-img">
+        </div>
+        
+        <div class="dropdown-item-info">
+          <span class="dropdown-item-title">${product.name}</span>
+          
+          <div class="dropdown-price-box">
+            <span class="dropdown-item-price">${product.price} ₴</span>
+            ${oldPriceHTML}
+          </div>
+          
+          ${stockBadgeHTML}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  searchDropdown.classList.remove('hidden');
+});
+
+searchDropdown.addEventListener('click', (event) => {
+  const item = event.target.closest('.search-dropdown-item');
+  if (!item) return;
+
+  const productId = Number(item.dataset.id);
+  const product = PRODUCTS.find(p => p.id === productId);
+
+  if (product) {
+    openProductModal(product);
+    searchInput.value = '';
+    searchDropdown.classList.add('hidden');
+    searchDropdown.innerHTML = '';
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.search-wrapper')) {
+    searchDropdown.classList.add('hidden');
+  }
+});

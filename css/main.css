@@ -1278,3 +1278,55 @@ body {
   background-color: #FF3D1A;
   color: #000000;
 }
+
+.search-dropdown-item {
+  display: flex;
+  background-color: #2c2c2d;
+}
+.search-dropdown-item .dropdown-item-img {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+.search-dropdown-item .dropdown-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-dropdown-item .dropdown-item-info .dropdown-item-title {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 300px;
+}
+.search-dropdown-item .dropdown-item-info .dropdown-item-price {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 300px;
+}
+.search-dropdown-item .dropdown-item-info .dropdown-old-price {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 300px;
+  text-decoration: line-through;
+}
+
+.search-dropdown-item.out-of-stock-item {
+  background-color: rgb(92, 92, 92);
+}
+
+.search-dropdown {
+  position: absolute;
+  border: 1px solid #3b3b42;
+}

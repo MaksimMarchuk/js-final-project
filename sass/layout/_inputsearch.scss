@@ -1,0 +1,56 @@
+.search-dropdown-item {
+    display: flex;
+    background-color: #2c2c2d;
+
+    .dropdown-item-img {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+    }
+
+    .dropdown-item-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .dropdown-item-title {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 22px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            width: 300px;
+        }
+
+        .dropdown-item-price {
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            width: 300px;
+        }
+
+        .dropdown-old-price{
+            font-family: Inter;
+            font-weight: 600;
+            font-style: Semi Bold;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            width: 300px;
+            text-decoration: line-through;
+        }
+    }
+}
+
+.search-dropdown-item.out-of-stock-item {
+  background-color: rgba(92, 92, 92,);
+}
+
+.search-dropdown{
+    position: absolute;
+    border: 1px solid #3b3b42;
+}

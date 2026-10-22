@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krok Street</title>
-    <link rel="preconn#28282bfe5cef="https://fonts.googleapis.com">
+    <link rel="preconn#28282bfe5cef=" https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,12 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li class="nav-input"><i class="bi bi-search"></i><input type="text" placeholder="Пошук товарів...">
+                <li class="nav-input">
+                    <div class="search-wrapper">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="searchInput" placeholder="Пошук товарів...">
+                        <div class="search-dropdown hidden" id="searchDropdown"></div>
+                    </div>
                 </li>
                 <li class="nav-img" data-open-modal><img src="./imgs/boxicons_cart.webp" alt=""></li>
             </ul>
@@ -85,7 +90,7 @@
                     </div>
                     <p class="cardModal__price">4 798 $</p>
                 </div>
-                <div class="mainmodal__midle"  id="emptyCartMessage">
+                <div class="mainmodal__midle" id="emptyCartMessage">
                     <i class="bi bi-cart"></i>
                     <p class="mainmodal__text">Кошик поки порожній</p>
                     <div class="mainmodal__button"><a href="#catalog">Дивитись каталог</a></div>
