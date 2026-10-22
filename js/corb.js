@@ -1,27 +1,82 @@
-// const cartCard = document.getElementById('cartCard');
-// const emptyCartMessage = document.getElementById('emptyCartMessage');
-// const cartCount = document.getElementById('cartCount');
-// const totalItems = document.getElementById('totalItems');
-// const totalPrice = document.getElementById('totalPrice');
-// const deleteItemBtn = document.getElementById('deleteItem');
-// const buyButton = document.querySelector('.modal-submit-btn');
+let cart = [];
 
-// if (buyButton) {
-//     buyButton.addEventListener('click', function() {
-//         cartCard.style.display = 'flex';
-//         emptyCartMessage.style.display = 'none';
-//         cartCount.textContent = '[1]';
-//         totalItems.textContent = '1';
-//         totalPrice.textContent = '4 798 ₴';
-//     })
-// }
+const cartItemsContainer = document.getElementById('cartItemsContainer');
+const emptyCartMessage = document.getElementById('emptyCartMessage');
+const cartCountSpan = document.getElementById('cartCount');
+const totalItemsCount = document.getElementById('totalItemsCount');
+const totalCartPrice = document.getElementById('totalCartPrice');
+const cartModalBackdrop = document.querySelector('[data-modal]');
+const closeCartBtn = document.querySelector('[data-close-modal]');
 
-// if (deleteItemBtn) {
-//     deleteItemBtn.addEventListener('click', function() {
-//         cartCard.style.display = 'none';
-//         emptyCartMessage.style.display = 'flex';
-//         cartCount.textContent = '[0]';
-//         totalItems.textContent = '0';
-//         totalPrice.textContent = '0 ₴';
-//     });
-// }
+function renderCart() {
+  if (!cartItemsContainer) return;
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '';
+    if (emptyCartMessage) emptyCartMessage.style.display = 'block';
+    if (cartCountSpan) cartCountSpan.textContent = '[0]';
+    if (totalItemsCount) totalItemsCount.textContent = '0';
+    if (totalCartPrice) totalCartPrice.textContent = '0 ₴';
+    return;
+  }
+
+  if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+
+  let totalProductsCount = 0;
+  let totalPriceSum = 0;
+
+  const cartHTML = cart.map((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    totalProductsCount += item.quantity;
+    totalPriceSum += itemTotal;
+
+    return `
+      <div class="cardModal" data-index="${index}">
+          <img src="${item.art}" alt="${item.name}">
+          <div class="cardModal__textbox">
+              <h2 class="cardModal__title">${item.name}</h2>
+              <h3 class="cardModal__subtitle">${item.category} • розмір ${item.size}</h3>
+              <div class="counter">
+                  <button class="cart-minus" data-index="${index}">-</button>
+                  <p id="itemCount">${item.quantity}</p>
+                  <button class="cart-plus" data-index="${index}">+</button>
+              </div>
+              <p class="cardModal__delete" data-index="${index}">Видалити</p>
+          </div>
+          <p class="cardModal__price">${itemTotal} ₴</p>
+      </div>
+    `;
+  }).join('');
+
+  cartItemsContainer.innerHTML = cartHTML;
+
+  if (cartCountSpan) cartCountSpan.textContent = `[${totalProductsCount}]`;
+  if (totalItemsCount) totalItemsCount.textContent = totalProductsCount;
+  if (totalCartPrice) totalCartPrice.textContent = `${totalPriceSum} ₴`;
+}
+
+if (cartItemsContainer) {
+  cartItemsContainer.addEventListener('click', (event) => {
+    const index = Number(event.target.dataset.index);
+    if (isNaN(index)) return;
+
+    if (event.target.classList.contains('cart-plus')) {
+      cart[index].quantity++;
+    } else if (event.target.classList.contains('cart-minus')) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+      }
+    } else if (event.target.classList.contains('cardModal__delete')) {
+      cart.splice(index, 1);
+    }
+
+    renderCart();
+  });
+}
+
+if (closeCartBtn && cartModalBackdrop) {
+  closeCartBtn.addEventListener('click', () => {
+    cartModalBackdrop.classList.add('is-hidden');
+  });
+}
+

@@ -2,9 +2,9 @@ const container = document.querySelector('.products-container');
 
 function renderProducts(products) {
   const cardsHTML = products.map(product => {
-    
-    const oldPriceHTML = product.oldPrice 
-      ? `<span class="card-old-price">${product.oldPrice} ₴</span>` 
+
+    const oldPriceHTML = product.oldPrice
+      ? `<span class="card-old-price">${product.oldPrice} ₴</span>`
       : '';
 
     let badgeHTML = '';
@@ -54,12 +54,39 @@ container.addEventListener('click', (event) => {
 
   if (product) {
     openProductModal(product);
+
+    submitBtn.addEventListener('click', () => {
+      const existingItem = cart.find(
+        item => item.id === product.id && item.size === selectedSize
+      );
+
+      if (existingItem) {
+        existingItem.quantity += currentQty;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          art: product.art,
+          price: product.price,
+          size: selectedSize || 'N/A',
+          quantity: currentQty
+        });
+      }
+
+      renderCart(); 
+      modalContainer.classList.add('hidden'); 
+
+      if (cartModalBackdrop) {
+        cartModalBackdrop.classList.remove('is-hidden');
+      }
+    });
   }
 });
 
 function openProductModal(product) {
-  const modalOldPriceHTML = product.oldPrice 
-    ? `<span class="modal-old-price">${product.oldPrice} ₴</span>` 
+  const modalOldPriceHTML = product.oldPrice
+    ? `<span class="modal-old-price">${product.oldPrice} ₴</span>`
     : '';
 
   let modalBadgeHTML = '';
@@ -69,17 +96,17 @@ function openProductModal(product) {
     modalBadgeHTML = `<span class="modal-badge badge-out">Немає в наявності</span>`;
   }
 
-  const sizesHTML = product.sizes 
+  const sizesHTML = product.sizes
     ? product.sizes.map((size, index) => `
         <button class="size-btn ${index === 0 ? 'active' : ''}">${size}</button>
-      `).join('') 
+      `).join('')
     : '';
 
   const stockText = product.inStock ? 'Є в наявності' : 'Немає в наявності';
   const stockClass = product.inStock ? 'in-stock' : 'out-of-stock';
 
   let modalContainer = document.getElementById('productModal');
-  
+
   if (!modalContainer) {
     modalContainer = document.createElement('div');
     modalContainer.id = 'productModal';
@@ -171,8 +198,8 @@ renderProducts(PRODUCTS);
 const toggleCheckbox = document.getElementById('toggle');
 
 toggleCheckbox.addEventListener('change', () => {
-  const productsToRender = toggleCheckbox.checked 
-    ? PRODUCTS.filter(product => product.inStock) 
+  const productsToRender = toggleCheckbox.checked
+    ? PRODUCTS.filter(product => product.inStock)
     : PRODUCTS;
 
   renderProducts(productsToRender);
@@ -207,7 +234,7 @@ const buttons = document.querySelectorAll('.catalog-btn-div button');
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     buttons.forEach(btn => btn.classList.remove('active'));
-    
+
     button.classList.add('active');
   });
 });

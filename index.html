@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krok Street</title>
-    <link rel="preconn#28282bfe5cef="https://fonts.googleapis.com">
+    <link rel="preconn#28282bfe5cef=" https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,73 +68,68 @@
         <div class="backdrop is-hidden" data-modal>
             <div class="mainmodal" id="mainModal">
                 <div class="mainmodal__top">
-                    <h1>Кошик<span id="cartCount">[0]</span></h1>
+                    <h1>Кошик <span id="cartCount">[0]</span></h1>
                     <button class="mainmodal__closemodal" data-close-modal>⨉</button>
                 </div>
-                <div class="cardModal" id="cartCard">
-                    <img src="./imgs/sneakers-first.webp" alt="">
-                    <div class="cardModal__textbox">
-                        <h2 class="cardModal__title">Кросівки Vortex Runner</h2>
-                        <h3 class="cardModal__subtitle">Кросівки • розмір 40</h3>
-                        <div class="counter">
-                            <button>-</button>
-                            <p id="itemCount">1</p>
-                            <button>+</button>
-                        </div>
-                        <p class="cardModal__delete" id="deleteItem">Видалити</p>
-                    </div>
-                    <p class="cardModal__price">4 798 $</p>
+
+                <!-- Контейнер, куди JavaScript динамічно вставлятиме додані товари -->
+                <div id="cartItemsContainer">
+                    <!-- Тут з'являтимуться картки товарів (cardModal) -->
                 </div>
-                <div class="mainmodal__midle"  id="emptyCartMessage">
+
+                <!-- Повідомлення про порожній кошик (ховається автоматично, коли є товари) -->
+                <div class="mainmodal__midle" id="emptyCartMessage">
                     <i class="bi bi-cart"></i>
                     <p class="mainmodal__text">Кошик поки порожній</p>
-                    <div class="mainmodal__button" ><a href="#catalog">Дивитись каталог</a></div>
+                    <div class="mainmodal__button"><a href="#catalog">Дивитись каталог</a></div>
                 </div>
+
                 <div class="mainmodalBottom">
                     <div class="mainmodalBottom__textbox">
                         <p>Товарів</p>
-                        <p>0</p>
+                        <p id="totalItemsCount">0</p>
                     </div>
                     <div class="mainmodalBottom__price">
                         <p>Разом</p>
-                        <p>0 ₴</p>
+                        <p id="totalCartPrice">0 ₴</p>
                     </div>
-                    <button class="mainmodalBottom__button" >Оформити замовлення</button>
+                    <button class="mainmodalBottom__button">Оформити замовлення</button>
                 </div>
             </div>
-            <div class="backdrop is-hidden" data-modal-form>
-                <div class="modalForm">
-                    <h1>Оформити замовлення</h1>
-                    <button class="modalForm__closemodal" data-close-modal-form>⨉</button>
-                    <form class="modalForm__form">
-                        <div class="formName">
-                            <p>Name<span>*</span></p>
-                            <input class="formName__input" type="text" placeholder="name">
-                        </div>
-                        <div class="formSurname">
-                            <p>Surname<span>*</span></p>
-                            <input class="formSurname__input" type="text" placeholder="surname">
-                        </div>
-                        <div class="formEmail">
-                            <p>E-mail<span>*</span></p>
-                            <input class="formEmail__input" type="text" placeholder="e-mail">
-                        </div>
-                        <div class="formPhone">
-                            <p>Phone<span>*</span></p>
-                            <input class="formPhone__input" type="text" placeholder="phone">
-                        </div>
-                        <div class="formAddress">
-                            <p>Address<span>*</span></p>
-                            <input class="formAddress__input" type="text" placeholder="address">
-                        </div>
-                        <div class="formCookies">
-                            <input class="formCookies__checkbox" type="checkbox"></input>
-                            <p>Я погоджуюся з умовами використання <a href="">файлів cookie</a></p>
-                        </div>
-                        <button class="modalForm__button">Оформити замовлення</button>
-                    </form>
-                </div>
+        </div>
+        <div class="backdrop is-hidden" data-modal-form>
+            <div class="modalForm">
+                <h1>Оформити замовлення</h1>
+                <button class="modalForm__closemodal" data-close-modal-form>⨉</button>
+                <form class="modalForm__form">
+                    <div class="formName">
+                        <p>Name<span>*</span></p>
+                        <input class="formName__input" type="text" placeholder="name">
+                    </div>
+                    <div class="formSurname">
+                        <p>Surname<span>*</span></p>
+                        <input class="formSurname__input" type="text" placeholder="surname">
+                    </div>
+                    <div class="formEmail">
+                        <p>E-mail<span>*</span></p>
+                        <input class="formEmail__input" type="text" placeholder="e-mail">
+                    </div>
+                    <div class="formPhone">
+                        <p>Phone<span>*</span></p>
+                        <input class="formPhone__input" type="text" placeholder="phone">
+                    </div>
+                    <div class="formAddress">
+                        <p>Address<span>*</span></p>
+                        <input class="formAddress__input" type="text" placeholder="address">
+                    </div>
+                    <div class="formCookies">
+                        <input class="formCookies__checkbox" type="checkbox"></input>
+                        <p>Я погоджуюся з умовами використання <a href="">файлів cookie</a></p>
+                    </div>
+                    <button class="modalForm__button">Оформити замовлення</button>
+                </form>
             </div>
+        </div>
         </div>
     </header>
     <main class="main">
