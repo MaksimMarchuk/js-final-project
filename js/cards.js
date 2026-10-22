@@ -54,6 +54,33 @@ container.addEventListener('click', (event) => {
 
   if (product) {
     openProductModal(product);
+
+    submitBtn.addEventListener('click', () => {
+      const existingItem = cart.find(
+        item => item.id === product.id && item.size === selectedSize
+      );
+
+      if (existingItem) {
+        existingItem.quantity += currentQty;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          art: product.art,
+          price: product.price,
+          size: selectedSize || 'N/A',
+          quantity: currentQty
+        });
+      }
+
+      renderCart(); 
+      modalContainer.classList.add('hidden'); 
+
+      if (cartModalBackdrop) {
+        cartModalBackdrop.classList.remove('is-hidden');
+      }
+    });
   }
 });
 
