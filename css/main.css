@@ -602,28 +602,33 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-.mainmodal__midle {
-  margin: 300px 55px;
-  font-family: "Inter", sans-serif;
+.mainmodal__middle {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  margin: 300px 55px;
+  font-family: "Inter", sans-serif;
   color: #5E5E5E;
 }
-.mainmodal__midle i {
+.mainmodal__middle i {
   font-size: 54px;
+  display: block;
 }
-.mainmodal__midle p {
+.mainmodal__middle p {
   font-size: 18px;
+  margin-bottom: 20px;
 }
 .mainmodal .mainmodalBottom {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 390px;
   padding: 0px 20px;
-  margin-top: 120%;
+  position: absolute;
+  top: 78%;
 }
 .mainmodal .mainmodalBottom__textbox {
   display: flex;
@@ -644,7 +649,6 @@ body {
   font-weight: 600;
 }
 .mainmodal .mainmodalBottom__button {
-  display: flex;
   width: 100%;
   height: 69px;
   background-color: #FF3D1A;
@@ -660,6 +664,10 @@ body {
   border-style: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.mainmodal .mainmodalBottom__button a {
+  color: #131316;
+  text-decoration: none;
 }
 .mainmodal__button {
   width: 252px;
@@ -683,49 +691,56 @@ body {
   color: #131316;
 }
 
-.cardModal {
-  display: none;
+.cart-item {
+  display: flex;
   flex-direction: row;
   align-items: center;
-  width: 359px;
-  gap: 25px;
+  width: 390px;
+  gap: 45px;
   padding-block: 16px;
   border-bottom: solid 1px #434343;
 }
-.cardModal__title {
+.cart-item-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cart-item-title {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   margin: 0px;
 }
-.cardModal__subtitle {
+.cart-item-desc {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #7A7A7A;
   margin-top: 5px;
 }
-.cardModal__delete {
+.cart-item-price {
+  font-family: "Inter", sans-serif;
+}
+.cart-item-remove-btn {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-decoration: underline;
   color: #7A7A7A;
   cursor: pointer;
-}
-.cardModal__price {
-  font-family: "Inter", sans-serif;
-}
-.cardModal img {
-  width: 55px;
-  height: 55px;
-  border-radius: 10px;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .counter {
   display: flex;
   flex-direction: row;
-  height: 17px;
-  width: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 70px;
   gap: 5px;
   border: solid 1px #353535;
   border-radius: 5px;
@@ -734,12 +749,15 @@ body {
 .counter button {
   background-color: #28282B;
   color: #fff;
-  border: #28282B;
+  border: none;
   cursor: pointer;
+  border-radius: 3px;
 }
-.counter p {
+.counter .qty-value {
   font-family: "Inter", sans-serif;
   margin: 0px;
+  font-size: 14px;
+  color: #fff;
 }
 
 .modalForm {

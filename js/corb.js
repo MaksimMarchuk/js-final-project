@@ -1,163 +1,300 @@
+const productsContainer = document.querySelector('.products-container');
+const cartContainer = document.getElementById('cartItemsContainer');
+const cartCountElement = document.getElementById('cartCount');
+const totalItemsCountElement = document.getElementById('totalItemsCount');
+const totalCartPriceElement = document.getElementById('totalCartPrice');
+const emptyCartMessage = document.getElementById('emptyCartMessage');
+
 let cart = [];
 
-const cartItemsContainer = document.getElementById('cartItemsContainer');
-const emptyCartMessage = document.getElementById('emptyCartMessage');
-const cartCountSpan = document.getElementById('cartCount');
-const totalItemsCount = document.getElementById('totalItemsCount');
-const totalCartPrice = document.getElementById('totalCartPrice');
-const cartModalBackdrop = document.querySelector('[data-modal]');
-const closeCartBtn = document.querySelector('[data-close-modal]');
+function renderProducts(products) {
+  if (!productsContainer) return;
 
-function renderCart() {
-  if (!cartItemsContainer) return;
+  const cardsHTML = products.map(product => {
+    const oldPriceHTML = product.oldPrice
+      ? `<span class="card-old-price">${product.oldPrice} ₴</span>`
+      : '';
 
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '';
-    if (emptyCartMessage) emptyCartMessage.style.display = 'block';
-    if (cartCountSpan) cartCountSpan.textContent = '[0]';
-    if (totalItemsCount) totalItemsCount.textContent = '0';
-    if (totalCartPrice) totalCartPrice.textContent = '0 ₴';
-    return;
-  }
+    let badgeHTML = '';
+    if (product.oldPrice) {
+      badgeHTML = `<span class="card-badge badge-sale">Знижка</span>`;
+    } else if (!product.inStock) {
+      badgeHTML = `<span class="card-badge badge-out">Немає в наявності</span>`;
+    }
 
-  if (emptyCartMessage) emptyCartMessage.style.display = 'none';
-
-  let totalProductsCount = 0;
-  let totalPriceSum = 0;
-
-  const cartHTML = cart.map((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    totalProductsCount += item.quantity;
-    totalPriceSum += itemTotal;
+    const buttonHTML = product.inStock
+      ? `<button class="cart-btn">У кошик</button>`
+      : `<button class="cart-btn disabled" disabled>Немає в наявності</button>`;
 
     return `
-      <div class="cardModal" data-index="${index}">
-          <img src="${item.art}" alt="${item.name}">
-          <div class="cardModal__textbox">
-              <h2 class="cardModal__title">${item.name}</h2>
-              <h3 class="cardModal__subtitle">${item.category} • розмір ${item.size}</h3>
-              <div class="counter">
-                  <button class="cart-minus" data-index="${index}">-</button>
-                  <p id="itemCount">${item.quantity}</p>
-                  <button class="cart-plus" data-index="${index}">+</button>
-              </div>
-              <p class="cardModal__delete" data-index="${index}">Видалити</p>
+      <div class="product-card ${!product.inStock ? 'out-of-stock' : ''}" data-id="${product.id}">
+        <div class="card-image-box">
+          ${badgeHTML}
+          <img src="${product.art}" alt="${product.name}" class="card-img">
+        </div>
+        
+        <div class="card-content">
+          <span class="card-category">${product.category}</span>
+          <h3 class="card-title">${product.name}</h3>
+          
+          <div class="card-price-box">
+            <span class="card-price">${product.price} ₴</span>
+            ${oldPriceHTML}
           </div>
-          <p class="cardModal__price">${itemTotal} ₴</p>
+          
+          ${buttonHTML}
+        </div>
       </div>
     `;
   }).join('');
 
-  cartItemsContainer.innerHTML = cartHTML;
-
-  if (cartCountSpan) cartCountSpan.textContent = `[${totalProductsCount}]`;
-  if (totalItemsCount) totalItemsCount.textContent = totalProductsCount;
-  if (totalCartPrice) totalCartPrice.textContent = `${totalPriceSum} ₴`;
+  productsContainer.innerHTML = cardsHTML;
 }
 
-if (cartItemsContainer) {
-  cartItemsContainer.addEventListener('click', (event) => {
-    const index = Number(event.target.dataset.index);
-    if (isNaN(index)) return;
+function renderCart() {
+  const cartContainer = document.getElementById('cartItemsContainer');
+  const emptyCartMessage = document.getElementById('emptyCartMessage');
+  const cartCountElement = document.getElementById('cartCount');
+  const totalItemsCountElement = document.getElementById('totalItemsCount');
+  const totalCartPriceElement = document.getElementById('totalCartPrice');
+  
+  const mainmodalBottom = document.querySelector('.mainmodalBottom');
 
-    if (event.target.classList.contains('cart-plus')) {
-      cart[index].quantity++;
-    } else if (event.target.classList.contains('cart-minus')) {
-      if (cart[index].quantity > 1) {
-        cart[index].quantity--;
-      }
-    } else if (event.target.classList.contains('cardModal__delete')) {
-      cart.splice(index, 1);
-    }
-
-    
-    function renderCart() {
-  if (!cartItemsContainer) return;
-
-  // Повністю очищуємо контейнер перед рендерингом
-  cartItemsContainer.innerHTML = '';
+  if (!cartContainer) return;
 
   if (cart.length === 0) {
+    cartContainer.innerHTML = '';
     if (emptyCartMessage) emptyCartMessage.style.display = 'block';
-    if (cartCountSpan) cartCountSpan.textContent = '[0]';
-    if (totalItemsCount) totalItemsCount.textContent = '0';
-    if (totalCartPrice) totalCartPrice.textContent = '0 ₴';
-    return;
+    
+    if (mainmodalBottom) mainmodalBottom.style.display = 'none';
+  } else {
+    if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+    
+    if (mainmodalBottom) mainmodalBottom.style.display = 'flex';
+    
+    cartContainer.innerHTML = cart.map((item, index) => {
+      return `
+        <div class="cart-item" data-index="${index}" data-id="${item.id}" style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
+          <div class="cart-item-img-box" style="width: 60px; height: 60px;">
+            <img src="${item.art}" alt="${item.name}" class="cart-item-img" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          
+          <div class="cart-item-info" style="flex-grow: 1;">
+            <h4 class="cart-item-title" style="margin: 0 0 5px 0;">${item.name}</h4>
+            <p class="cart-item-desc" style="margin: 0 0 5px 0; font-size: 12px; opacity: 0.7;">${item.category} • розмір ${item.size}</p>
+            
+            <div class="cart-item-controls" style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="counter">
+                <button class="qty-btn minus">-</button>
+                <span class="qty-value">${item.quantity}</span>
+                <button class="qty-btn plus">+</button>
+              </div>
+              <span class="cart-item-price">${item.price * item.quantity} ₴</span>
+            </div>
+            
+            <button class="cart-item-remove-btn" style="background: none; border: none; color: tomato; cursor: pointer; padding: 0; margin-top: 5px; font-size: 12px;">Видалити</button>
+          </div>
+        </div>
+      `;
+    }).join('');
   }
 
-  if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalSum = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-  let totalProductsCount = 0;
-  let totalPriceSum = 0;
+  if (cartCountElement) cartCountElement.textContent = `[${totalQuantity}]`;
+  if (totalItemsCountElement) totalItemsCountElement.textContent = totalQuantity;
+  if (totalCartPriceElement) totalCartPriceElement.textContent = `${totalSum} ₴`;
+}
 
-  cart.forEach((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    totalProductsCount += item.quantity;
-    totalPriceSum += itemTotal;
+if (cartContainer) {
+  cartContainer.addEventListener('click', (event) => {
+    const cartItemElement = event.target.closest('.cart-item');
+    if (!cartItemElement) return;
 
-    // Головний блок картки
-    const cardDiv = document.createElement('div');
-    cardDiv.className = 'cardModal';
-    cardDiv.dataset.index = index;
+    const index = Number(cartItemElement.dataset.index);
 
-    // Зображення товару
-    const img = document.createElement('img');
-    img.src = item.art;
-    img.alt = item.name;
+    if (event.target.classList.contains('plus')) {
+      cart[index].quantity += 1;
+      renderCart();
+    }
+    
+    if (event.target.classList.contains('minus')) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1;
+        renderCart();
+      }
+    }
+    
+    if (event.target.classList.contains('cart-item-remove-btn')) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+  });
+}
 
-    // Текстовий блок
-    const textBox = document.createElement('div');
-    textBox.className = 'cardModal__textbox';
+function openProductModal(product) {
+  const searchInput = document.getElementById('searchInput');
+  const searchDropdown = document.getElementById('searchDropdown');
 
-    const title = document.createElement('h2');
-    title.className = 'cardModal__title';
-    title.textContent = item.name;
+  if (searchInput && searchDropdown) {
+    searchInput.value = '';
+    searchDropdown.classList.add('hidden');
+    searchDropdown.innerHTML = '';
+  }
 
-    const subtitle = document.createElement('h3');
-    subtitle.className = 'cardModal__subtitle';
-    subtitle.textContent = `${item.category} • розмір ${item.size}`;
+  const modalOldPriceHTML = product.oldPrice
+    ? `<span class="modal-old-price">${product.oldPrice} ₴</span>`
+    : '';
 
-    // Блок лічильника
-    const counterDiv = document.createElement('div');
-    counterDiv.className = 'counter';
+  let modalBadgeHTML = '';
+  if (product.oldPrice) {
+    modalBadgeHTML = `<span class="modal-badge badge-sale">Знижка</span>`;
+  } else if (!product.inStock) {
+    modalBadgeHTML = `<span class="modal-badge badge-out">Немає в наявності</span>`;
+  }
 
-    const minusBtn = document.createElement('button');
-    minusBtn.className = 'cart-minus';
-    minusBtn.dataset.index = index;
-    minusBtn.textContent = '-';
+  const sizesHTML = product.sizes
+    ? product.sizes.map((size, index) => `
+        <button class="size-btn ${index === 0 ? 'active' : ''}">${size}</button>
+      `).join('')
+    : '';
 
-    const countP = document.createElement('p');
-    countP.className = 'itemCount'; // Використовуємо клас замість ID, щоб уникнути дублів
-    countP.textContent = item.quantity;
+  const stockText = product.inStock ? 'Є в наявності' : 'Немає в наявності';
+  const stockClass = product.inStock ? 'in-stock' : 'out-of-stock';
 
-    const plusBtn = document.createElement('button');
-    plusBtn.className = 'cart-plus';
-    plusBtn.dataset.index = index;
-    plusBtn.textContent = '+';
+  const submitButtonHTML = product.inStock
+    ? `<button class="modal-submit-btn">Додати кошик</button>`
+    : '';
 
-    counterDiv.append(minusBtn, countP, plusBtn);
+  let modalContainer = document.getElementById('productModal');
 
-    // Кнопка видалення
-    const deleteBtn = document.createElement('p');
-    deleteBtn.className = 'cardModal__delete';
-    deleteBtn.dataset.index = index;
-    deleteBtn.textContent = 'Видалити';
+  if (!modalContainer) {
+    modalContainer = document.createElement('div');
+    modalContainer.id = 'productModal';
+    modalContainer.className = 'modal-overlay';
+    document.body.appendChild(modalContainer);
+  }
 
-    textBox.append(title, subtitle, counterDiv, deleteBtn);
+  modalContainer.innerHTML = `
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      
+      <div class="modal-image-box">
+        ${modalBadgeHTML}
+        <img src="${product.art}" alt="${product.name}" class="modal-img">
+      </div>
+      
+      <div class="modal-info">
+        <span class="modal-brand-category">${product.brand || ''} ${product.category}</span>
+        <h2 class="modal-title">${product.name}</h2>
+        
+        <div class="modal-price-box">
+          <span class="modal-price">${product.price} ₴</span>
+          ${modalOldPriceHTML}
+        </div>
+        
+        <p class="modal-description">${product.description || ''}</p>
+        
+        <div class="modal-sizes-section">
+          <span class="modal-sizes-label">Розмір</span>
+          <div class="modal-sizes-list">${sizesHTML}</div>
+        </div>
 
-    // Ціна товару
-    const priceP = document.createElement('p');
-    priceP.className = 'cardModal__price';
-    priceP.textContent = `${itemTotal} ₴`;
+        <div class="modal-quantity-section">
+          <span class="modal-quantity-label">Кількість</span>
+          <div class="quantity-control">
+            <button class="qty-btn minus">-</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+        
+        <div class="modal-stock ${stockClass}">${stockText}</div>
+        
+        ${submitButtonHTML}
+      </div>
+    </div>
+  `;
 
-    // Збираємо картку doh купи
-    cardDiv.append(img, textBox, priceP);
-    cartItemsContainer.appendChild(cardDiv);
+  modalContainer.classList.remove('hidden');
+
+  const minusBtn = modalContainer.querySelector('.qty-btn.minus');
+  const plusBtn = modalContainer.querySelector('.qty-btn.plus');
+  const qtyValue = modalContainer.querySelector('.qty-value');
+  let currentQty = 1;
+
+  if (minusBtn && plusBtn && qtyValue) {
+    minusBtn.addEventListener('click', () => {
+      if (currentQty > 1) { currentQty--; qtyValue.textContent = currentQty; }
+    });
+    plusBtn.addEventListener('click', () => {
+      currentQty++; qtyValue.textContent = currentQty;
+    });
+  }
+
+  const sizeButtons = modalContainer.querySelectorAll('.size-btn');
+  sizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sizeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
   });
 
-  // Оновлюємо підсумки
-  if (cartCountSpan) cartCountSpan.textContent = `[${totalProductsCount}]`;
-  if (totalItemsCount) totalItemsCount.textContent = totalProductsCount;
-  if (totalCartPrice) totalCartPrice.textContent = `${totalPriceSum} ₴`;
+  const submitBtn = modalContainer.querySelector('.modal-submit-btn');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      const activeSizeBtn = modalContainer.querySelector('.size-btn.active');
+      const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : 'N/A';
+
+      const existingItem = cart.find(
+        item => item.id === product.id && item.size === selectedSize
+      );
+
+      if (existingItem) {
+        existingItem.quantity += currentQty;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          art: product.art,
+          price: product.price,
+          size: selectedSize,
+          quantity: currentQty
+        });
+      }
+
+      renderCart(); 
+      modalContainer.classList.add('hidden'); 
+    });
+  }
+
+  const closeBtn = modalContainer.querySelector('.modal-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => modalContainer.classList.add('hidden'));
+  }
+  modalContainer.addEventListener('click', (e) => {
+    if (e.target === modalContainer) modalContainer.classList.add('hidden');
+  });
 }
+
+if (productsContainer) {
+  productsContainer.addEventListener('click', (event) => {
+    const card = event.target.closest('.product-card');
+    if (!card) return;
+
+    const productId = Number(card.dataset.id);
+    const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS.find(p => p.id === productId) : null;
+
+    if (product) {
+      openProductModal(product);
+    }
+  });
 }
+
+if (typeof PRODUCTS !== 'undefined') {
+  renderProducts(PRODUCTS);
+  renderCart();
+}
+
