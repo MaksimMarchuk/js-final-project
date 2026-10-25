@@ -282,6 +282,30 @@ categoryButtons.forEach(button => {
 toggleCheckbox.addEventListener('change', updateProducts);
 sortSelect.addEventListener('change', updateProducts);
 
+const resetBtn = document.getElementById('reset');
+if (resetBtn) {
+  resetBtn.addEventListener('click', () => {
+    if (toggleCheckbox) {
+      toggleCheckbox.checked = false;
+    }
+
+    if (sortSelect) {
+      sortSelect.value = '0'; 
+    }
+
+    currentCategory = 'Усе';
+
+    categoryButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.textContent.trim() === 'Усе' || btn.getAttribute('data-category') === 'Усе') {
+        btn.classList.add('active');
+      }
+    });
+
+    updateProducts();
+  });
+}
+
 const searchInput = document.getElementById('searchInput');
 const searchDropdown = document.getElementById('searchDropdown');
 
@@ -363,4 +387,13 @@ document.addEventListener('click', (event) => {
   }
 });
 
+const sizeButtons = document.querySelectorAll('.modal-sizes-list button');
+sizeButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
 
+    sizeButtons.forEach(btn => btn.classList.remove('active'));
+
+    button.classList.add('active');
+  });
+});

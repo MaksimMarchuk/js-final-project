@@ -53,10 +53,10 @@
         <nav class="nav-menu">
             <ul>
                 <li class="nav-ico-text"><a>KROK <i class="bi bi-square-fill"></i> STREET</a></li>
-                <li class="nav-home"><a>Головна</a></li>
-                <li class="nav-catalog"><a>Каталог</a></li>
-                <li class="nav-about-us"><a>Про нас</a></li>
-                <li class="nav-contact"><a>Контакти</a></li>
+                <li class="nav-home"><a href="#main-sect">Головна</a></li>
+                <li class="nav-catalog"><a href="#catalog">Каталог</a></li>
+                <li class="nav-about-us"><a href="#about-us">Про нас</a></li>
+                <li class="nav-contact"><a href="#sect-cont">Контакти</a></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -103,15 +103,15 @@
         </div>
     </header>
     <main class="main">
-        <section class="front-sect">
+        <section class="front-sect" id="main-sect">
             <div class="front-main-div">
                 <h1>street style shop</h1>
                 <h2>вбрання для вулиць твого міста</h2>
                 <h3>Кросівки, худі, кепки й аксесуари, які носить твоя стрічка. Обирай образ і додавай у кошик за пару
                     кліків.</h3>
                 <div class="front-btn-div">
-                    <a class="catalog-btn">Дивитись каталог</a>
-                    <button class="about-btn">Про магазин</button>
+                    <a class="catalog-btn" href="#catalog">Дивитись каталог</a>
+                    <a class="about-btn" href="#about-us">Про магазин</a>
                 </div>
             </div>
             <div class="front-img-div">
@@ -152,7 +152,7 @@
                         <span class="slider round"></span>
                     </label>
                     <h3>Тільки в наявності</h3>
-                    <button>Скинути фільтри</button>
+                    <button id="reset">Скинути фільтри</button>
                 </div>
             </div>
             <div class="main-cards-div">
@@ -160,7 +160,7 @@
                     <div class="products-container"></div>
                 </div>
         </section>
-        <section class="info">
+        <section class="info" id="about-us">
             <div class="info__container">
                 <img src="./imgs/jacket_aboutShop.webp" alt="jacket">
                 <div class="info__textbox">
@@ -191,7 +191,7 @@
                 </div>
             </div>
         </section>
-        <section class="contacts">
+        <section class="contacts" id="sect-cont">
             <div class="contacts__container">
                 <div class="contacts__maininfobox">
                     <h2 class="contacts__title">Контакти</h2>

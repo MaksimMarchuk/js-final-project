@@ -71,6 +71,9 @@
                 }
 
                 .about-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 229px;
                     height: 69px;
                     border: 1px solid #434343;
@@ -84,6 +87,7 @@
                     border-radius: 5px;
                     background-color: #131316;
                     cursor: pointer;
+                    text-decoration: none;
                 }
             }
         }

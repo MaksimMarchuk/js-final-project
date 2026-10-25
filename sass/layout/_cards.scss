@@ -130,6 +130,7 @@
 
 .modal-overlay {
     position: fixed;
+    z-index: 100000;
     top: 0;
     left: 0;
     width: 100%;
@@ -364,6 +365,11 @@
             cursor: default;
             display: flex;
             gap: 10px;
+
+            button.active {
+                background-color: #FF3D1A;
+                color: #000000;
+            }
 
             .size-btn {
                 border-style: none;

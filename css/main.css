@@ -4,6 +4,12 @@ body {
   margin: 0 auto;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #131316;
+}
 .header .animated-advertising {
   background-color: #FF330E;
   height: 46px;
@@ -58,6 +64,10 @@ body {
 }
 .header .nav-menu ul li {
   cursor: pointer;
+}
+.header .nav-menu ul a {
+  text-decoration: none;
+  color: #5F5F61;
 }
 .header .nav-menu ul .nav-ico-text {
   font-family: Anton;
@@ -171,6 +181,9 @@ body {
   cursor: pointer;
 }
 .main .front-sect .front-main-div .front-btn-div .about-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 229px;
   height: 69px;
   border: 1px solid #434343;
@@ -184,6 +197,7 @@ body {
   border-radius: 5px;
   background-color: #131316;
   cursor: pointer;
+  text-decoration: none;
 }
 .main .front-sect .front-img-div {
   display: flex;
@@ -1106,6 +1120,7 @@ body {
 
 .modal-overlay {
   position: fixed;
+  z-index: 100000;
   top: 0;
   left: 0;
   width: 100%;
@@ -1315,6 +1330,10 @@ body {
   cursor: default;
   display: flex;
   gap: 10px;
+}
+.modal-content .modal-sizes-section .modal-sizes-list button.active {
+  background-color: #FF3D1A;
+  color: #000000;
 }
 .modal-content .modal-sizes-section .modal-sizes-list .size-btn {
   border-style: none;
